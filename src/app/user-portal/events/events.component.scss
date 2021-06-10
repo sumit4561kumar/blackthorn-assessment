@@ -1,0 +1,128 @@
+@import "variables";
+@import "breakpoints";
+
+.events-title {
+  margin: 25px 110px;
+
+  @include lt-sm {
+    margin: 10px;
+  }
+}
+
+.events-wrapper {
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 25px 100px;
+
+  @include lt-sm {
+    flex-direction: column;
+    margin: 10px;
+  }
+}
+
+.event-card {
+  width: 25%;
+  height: 100%;
+  padding: 16px;
+
+  &--consumer:hover {
+    box-shadow: 0 16px 64px -16px rgba(46, 55, 77, 0.24);
+  }
+
+  &--article {
+    overflow: visible;
+    position: relative;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  &-content {
+    &__content {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex: 1 0 auto;
+
+      &__principal {
+        flex: 1 1 auto;
+        word-break: break-word;
+      }
+    }
+
+    &__action-link {
+      display: block;
+      outline: none;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    &__content-container {
+      padding: 24px 16px;
+      display: block;
+      overflow: visible;
+      position: relative;
+    }
+
+    &__image {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%) translateY(-50%);
+      max-width: 100%;
+      height: auto;
+
+      &-image {
+        position: relative;
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      &-container {
+        display: block;
+        position: relative;
+        overflow: visible;
+        flex: 0 0 auto;
+      }
+
+      &-content {
+        width: 100%;
+        padding-top: 50%;
+        border-radius: 0;
+        transition: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      &-placeholder {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  @include lt-sm {
+    width: calc(100% - 20px);
+  }
+
+  &-block {
+    border-radius: 4px;
+    height: 50px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    line-height: 50px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+    background-color: #fff;
+  }
+}

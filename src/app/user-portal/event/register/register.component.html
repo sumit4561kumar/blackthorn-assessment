@@ -1,0 +1,105 @@
+<div class="arrow-button">
+  <button (click)="backEvent()">
+    <div class="arrow"></div>
+  </button>
+</div>
+<div class="checkout-wrapper">
+  <div class="ticket-details">
+    <form
+      class="form-wrapper"
+      [formGroup]="form"
+      name="contactForm"
+      id="contactForm"
+      #contactForm="ngForm"
+    >
+      <div>
+        <span class="content-title">Free Ticket</span>
+        <p class="content-details">
+          Free ticket for anyone to make a valuable contribution towards our
+          future online events programme. Thank you.
+        </p>
+        <div class="select-wrapper">
+          <label for="free" class="label">Free</label>
+          <app-custom-select
+            [formControl]="freeTicketQuantity"
+            [items]="freeTickets"
+            closeOnSelect="true"
+            isAppendTo="false"
+            name="free"
+            class="free"
+          ></app-custom-select>
+        </div>
+      </div>
+      <div class="lower-border"></div>
+      <div>
+        <span class="content-title">Alumni VIP Ticket</span>
+        <p class="content-details">
+          This livestream will broadcast via a private YouTube link that will be
+          sent to ticket purchasers an hour prior to showtime
+        </p>
+        <div class="select-wrapper">
+          <label for="vip" class="label">{{ eventInfo?.price || 0 }}</label>
+          <app-custom-select
+            [formControl]="vipTicketQuantity"
+            [items]="vipTickets"
+            closeOnSelect="true"
+            isAppendTo="false"
+            name="vip"
+            class="vip"
+          ></app-custom-select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="ticket-summary">
+    <div class="ticket-summary-wrapper">
+      <div>
+        <div>
+          <div class="content-title order-summary">Order summary</div>
+          <div class="order-details-wrapper">
+            <div class="order-details">
+              <div>
+                <span>{{ freeTicketQuantity.value }}x </span>
+                <span>Free Ticket</span>
+              </div>
+              <div>$ 0.00</div>
+            </div>
+            <div class="order-details">
+              <div>
+                <span>{{ vipTicketQuantity.value }}x </span>
+                <span>Alumni VIP Ticket</span>
+              </div>
+              <div>$ {{ eventInfo?.price || 0 }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="lower-border"></div>
+        <div>
+          <div>SubTotal</div>
+          <div class="order-details-wrapper">
+            <div class="order-details">
+              <div><span>SubTotal</span></div>
+              <div>$ {{ (eventInfo?.price || 0) * vipTicketQuantity.value }}</div>
+            </div>
+            <div class="order-details">
+              <div><span>Taxes</span></div>
+              <div>
+                $ {{ (eventInfo?.price || 0) * vipTicketQuantity.value * 0.18 }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lower-border"></div>
+        <div class="order-details total-amount">
+          <div><span>Total</span></div>
+          <div>$ {{ (eventInfo?.price || 0) * vipTicketQuantity.value * 1.18 }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="checkout-btn-wrapper">
+      <button class="checkout" (click)="addTicketDetails($event)">
+        Checkout
+      </button>
+    </div>
+  </div>
+</div>

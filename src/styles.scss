@@ -1,1 +1,210 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/normalize.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.css';
+@import url('https://fonts.googleapis.com/css2?family=Lusitana&family=Raleway:wght@500;600;700&display=swap');
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import './styles/shared/breakpoints';
+@import './styles/shared/icons';
+@import './styles/shared/mixins';
+@import './styles/shared/variables';
+@import './styles/forms';
+@import './styles/links';
+@import './styles/ngb-modal';
+@import '~ng-busy/src/style/busy.css';
+@import '~@ng-select/ng-select/themes/default.theme.css';
+@import './styles/ng-custom-select';
+
+html {
+  font-size: 14px;
+  height: 100%;
+
+  @include lt-sm {
+    font-size: 16px;
+  }
+}
+
+body {
+  min-height: 100vh;
+  min-width: 320px;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 44px;
+  cursor: default;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 32px;
+  cursor: default;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+  cursor: default;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 24px;
+  cursor: default;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 24px;
+  cursor: default;
+}
+
+h6 {
+  font-size: 12px;
+  line-height: 16;
+  cursor: default;
+}
+
+.subheading {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.simple-text {
+  font-family: 'Lusitana', serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.caption {
+  font-weight: medium;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.bigger-simple-text {
+  font-family: 'Lusitana', serif;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+input[type='password']::-ms-reveal {
+  display: none;
+}
+
+::-ms-clear {
+  display: none;
+}
+
+::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  margin: 0;
+}
+
+.validated .form-control:invalid,
+.validated .ng-invalid.ng-dirty {
+  border-color: $border-error !important;
+}
+
+.simple-notification-wrapper {
+  z-index: 3000 !important;
+}
+
+.form-control.invalid {
+  border-color: $border-error !important;
+}
+
+input:not(.ng-invalid),
+textarea:not(.ng-invalid) {
+  &:focus {
+    border-color: $input-border-focus;
+  }
+}
+
+.form-control {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-size: 1.15em;
+  line-height: 1.5em;
+  color: $dark-blue;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  &.invalid,
+  &.ng-touched.ng-invalid {
+    color: $dark-blue;
+  }
+
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 9px 0;
+}
+
+input,
+textarea {
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.cut-off-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+textarea {
+  word-break: break-all;
+  word-break: break-word;
+}
+
+.wrap {
+  position: relative;
+}
+
+.text-danger {
+  color: $red !important;
+}
+
+.form-control-feedback {
+  color: $red !important;
+}
+
+app-form-field {
+  .app-input-suffix {
+    margin-left: 0.75em;
+  }
+
+  .app-input-prefix {
+    margin-right: 0.75em;
+  }
+
+  .form-control {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+  }
+
+  @include lt-sm {
+    .simple-text {
+      font-size: 14px;
+    }
+
+    .form-control {
+      font-size: 14px;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px white inset !important;
+}

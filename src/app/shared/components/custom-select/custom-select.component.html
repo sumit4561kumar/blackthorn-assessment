@@ -1,0 +1,65 @@
+<label
+  [for]="name"
+  *ngIf="label"
+  class="label"
+>
+  {{label}}
+  <span *ngIf="required" class="text-danger">*</span>
+  <span *ngIf="optional" class="optional">(optional)</span>
+</label>
+<ng-select
+  [items]="items"
+  [bindValue]="bindValue"
+  [bindLabel]="bindLabel"
+  [searchable]="searchable"
+  [clearable]="clearable"
+  [formControl]="formControl"
+  [markFirst]="true"
+  [notFoundText]="notFoundText"
+  [placeholder]="placeholder"
+  [multiple]="multiple"
+  [closeOnSelect]="closeOnSelect"
+  [hideSelected]="hideSelected"
+  (change)="onSelectChange($event)"
+  (close)="onSelectClose($event)"
+  #ngSelect
+  [appendTo]="appendTo"
+  class="custom"
+  [ngStyle]="selectStyles"
+>
+  <ng-template ng-label-tmp let-label="label" let-item="item">
+    <ng-template
+      [ngTemplateOutlet]="labelTemplate || defaultLabelTemplate"
+      [ngTemplateOutletContext]="{
+        label: (item && item[bindLabel] ? item[bindLabel]: ''),
+        item: (item || {})
+      }"
+    ></ng-template>
+    <ng-template #defaultLabelTemplate let-label="label" let-item="item">
+      <div class="ng-select-custom-label">
+        {{ label }}
+      </div>
+    </ng-template>
+  </ng-template>
+
+  <ng-template ng-option-tmp let-index="index">
+    <ng-template
+      [ngTemplateOutlet]="optionTemplate || defaultTemplate"
+      [ngTemplateOutletContext]="{
+        label: (items[index] && items[index][bindLabel] ? items[index][bindLabel] : ''),
+        item: (items[index] || {})
+      }"
+    ></ng-template>
+    <ng-template #defaultTemplate let-label="label" let-item="item">
+      <div class="ng-select-custom-option">
+        {{ label }}
+      </div>
+    </ng-template>
+  </ng-template>
+</ng-select>
+<p
+  class="simple-text text-danger"
+  *ngIf="isInvalid"
+>
+  {{ actualErrors }}
+</p>

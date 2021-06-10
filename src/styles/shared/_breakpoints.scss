@@ -1,0 +1,87 @@
+/* breakpoints */
+@import './media';
+@import './variables';
+
+@mixin xs {
+  @include mq($max-width: ($width-sm - 1px)) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include mq($min-width: ($width-sm), $max-width: ($width-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include mq($min-width: ($width-md), $max-width: ($width-lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include mq($min-width: ($width-lg), $max-width: ($width-xl - 1px)) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include mq($min-width: ($width-xl), $max-width: 5000px) {
+    @content;
+  }
+}
+
+@mixin gt-xs {
+  @include mq($min-width: ($width-sm)) {
+    @content;
+  }
+}
+
+@mixin gt-sm {
+  @include mq($min-width: ($width-md)) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @include mq($min-width: ($width-lg)) {
+    @content;
+  }
+}
+
+@mixin gt-lg {
+  @include mq($min-width: ($width-xl)) {
+    @content;
+  }
+}
+
+@mixin lt-xs {
+  @include mq($max-width: ($width-xs - 1px)) {
+    @content;
+  }
+}
+
+@mixin lt-sm {
+  @include mq($max-width: ($width-sm - 1px)) {
+    @content;
+  }
+}
+
+@mixin lt-md {
+  @include mq($max-width: ($width-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin lt-lg {
+  @include mq($max-width: ($width-lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin lt-xl {
+  @include mq($max-width: ($width-xl - 1px)) {
+    @content;
+  }
+}

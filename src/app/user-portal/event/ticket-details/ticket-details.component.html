@@ -1,0 +1,307 @@
+<div class="arrow-button">
+  <button (click)="backEvent()">
+    <div class="arrow"></div>
+  </button>
+</div>
+<div class="checkout-wrapper">
+  <div class="ticket-details">
+    <form
+      (submit)="save()"
+      class="form-wrapper"
+      [formGroup]="form"
+      name="ticketDetailsForm"
+      id="ticketDetailsForm"
+      #ticketDetailsForm="ngForm"
+    >
+      <div *ngFor="let option of freeTicketQuantity; let i = index">
+        <span class="content-title"
+          >Attendee {{ option + 1 }} - Free Ticket</span
+        >
+        <div>
+          <app-form-field class="first-name">
+            <input
+              appInput
+              [formControl]="
+                form?.get('freeTicket_' + option)?.get('firstName')
+              "
+              placeholder="First Name *"
+              name="first_name"
+              id="first_name"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('freeTicket_' + option)?.get('firstName')?.touched &&
+                form?.get('freeTicket_' + option)?.get('firstName')?.invalid
+              "
+            >
+              {{
+                form?.get("freeTicket_" + option)?.get("firstName").errors
+                  | inputError: formErrorMapping.firstNameErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="last-name">
+            <input
+              appInput
+              [formControl]="form?.get('freeTicket_' + option)?.get('lastName')"
+              placeholder="Last Name *"
+              name="last_name"
+              id="last_name"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('freeTicket_' + option)?.get('lastName')?.touched &&
+                form?.get('freeTicket_' + option)?.get('lastName')?.invalid
+              "
+            >
+              {{
+                form?.get("freeTicket_" + option)?.get("lastName").errors
+                  | inputError: formErrorMapping.lastNameErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="email">
+            <input
+              appInput
+              [formControl]="form?.get('freeTicket_' + option)?.get('email')"
+              placeholder="Email *"
+              name="email"
+              id="email"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('freeTicket_' + option)?.get('email')?.touched &&
+                form?.get('freeTicket_' + option)?.get('email')?.invalid
+              "
+            >
+              {{
+                form?.get("freeTicket_" + option)?.get("email").errors
+                  | inputError: formErrorMapping.emailErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="phone">
+            <input
+              appInput
+              [formControl]="form?.get('freeTicket_' + option)?.get('phone')"
+              placeholder="Phone Number *"
+              name="phone"
+              id="phone"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('freeTicket_' + option)?.get('phone')?.touched &&
+                form?.get('freeTicket_' + option)?.get('phone')?.invalid
+              "
+            >
+              {{
+                form?.get("freeTicket_" + option)?.get("phone").errors
+                  | inputError: formErrorMapping.phoneErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="company">
+            <input
+              appInput
+              [formControl]="form?.get('freeTicket_' + option)?.get('company')"
+              placeholder="Company *"
+              name="company"
+              id="company"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('freeTicket_' + option)?.get('company')?.touched &&
+                form?.get('freeTicket_' + option)?.get('company')?.invalid
+              "
+            >
+              {{
+                form?.get("freeTicket_" + option)?.get("company").errors
+                  | inputError: formErrorMapping.companyErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+        </div>
+      </div>
+      <div class="lower-border"></div>
+      <div *ngFor="let option of vipTicketQuantity; let i = index">
+        <span class="content-title">
+          Attendee {{ option + 1 }} - Alumni VIP Ticket
+        </span>
+        <div>
+          <app-form-field class="first-name">
+            <input
+              appInput
+              [formControl]="
+                form?.get('vipTicket_' + option)?.get('firstName')
+              "
+              placeholder="First Name *"
+              name="first_name"
+              id="first_name"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('vipTicket_' + option)?.get('firstName')?.touched &&
+                form?.get('vipTicket_' + option)?.get('firstName')?.invalid
+              "
+            >
+              {{
+                form?.get("vipTicket_" + option)?.get("firstName").errors
+                  | inputError: formErrorMapping.firstNameErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="last-name">
+            <input
+              appInput
+              [formControl]="form?.get('vipTicket_' + option)?.get('lastName')"
+              placeholder="Last Name *"
+              name="last_name"
+              id="last_name"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('vipTicket_' + option)?.get('lastName')?.touched &&
+                form?.get('vipTicket_' + option)?.get('lastName')?.invalid
+              "
+            >
+              {{
+                form?.get("vipTicket_" + option)?.get("lastName").errors
+                  | inputError: formErrorMapping.lastNameErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="email">
+            <input
+              appInput
+              [formControl]="form?.get('vipTicket_' + option)?.get('email')"
+              placeholder="Email *"
+              name="email"
+              id="email"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('vipTicket_' + option)?.get('email')?.touched &&
+                form?.get('vipTicket_' + option)?.get('email')?.invalid
+              "
+            >
+              {{
+                form?.get("vipTicket_" + option)?.get("email").errors
+                  | inputError: formErrorMapping.emailErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="phone">
+            <input
+              appInput
+              [formControl]="form?.get('vipTicket_' + option)?.get('phone')"
+              placeholder="Phone Number *"
+              name="phone"
+              id="phone"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('vipTicket_' + option)?.get('phone')?.touched &&
+                form?.get('vipTicket_' + option)?.get('phone')?.invalid
+              "
+            >
+              {{
+                form?.get("vipTicket_" + option)?.get("phone").errors
+                  | inputError: formErrorMapping.phoneErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+          <app-form-field class="company">
+            <input
+              appInput
+              [formControl]="form?.get('vipTicket_' + option)?.get('company')"
+              placeholder="Company *"
+              name="company"
+              id="company"
+              type="text"
+            />
+            <app-input-error
+              *ngIf="
+                form?.get('vipTicket_' + option)?.get('company')?.touched &&
+                form?.get('vipTicket_' + option)?.get('company')?.invalid
+              "
+            >
+              {{
+                form?.get("vipTicket_" + option)?.get("company").errors
+                  | inputError: formErrorMapping.companyErrors
+              }}
+            </app-input-error>
+          </app-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="ticket-summary">
+    <div class="ticket-summary-wrapper">
+      <div>
+        <div>
+          <div class="content-title order-summary">Order summary</div>
+          <div class="order-details-wrapper">
+            <div class="order-details">
+              <div>
+                <span>{{ data?.freeTicket || 0 }}x </span>
+                <span>Free Ticket</span>
+              </div>
+              <div>$ 0.00</div>
+            </div>
+            <div class="order-details">
+              <div>
+                <span>{{ data?.vipTicket || 0 }}x </span>
+                <span>Alumni VIP Ticket</span>
+              </div>
+              <div>$ {{ eventInfo?.price || 0 }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="lower-border"></div>
+        <div>
+          <div>SubTotal</div>
+          <div class="order-details-wrapper">
+            <div class="order-details">
+              <div><span>SubTotal</span></div>
+              <div>
+                $ {{ (eventInfo?.price || 0) * (data?.vipTicket || 0) }}
+              </div>
+            </div>
+            <div class="order-details">
+              <div><span>Taxes</span></div>
+              <div>
+                $ {{ (eventInfo?.price || 0) * (data?.vipTicket || 0) * 0.18 }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lower-border"></div>
+        <div class="order-details total-amount">
+          <div><span>Total</span></div>
+          <div>
+            $ {{ (eventInfo?.price || 0) * (data?.vipTicket || 0) * 1.18 }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="checkout-btn-wrapper">
+      <button
+        class="checkout"
+        type="submit"
+        class="checkout"
+        form="ticketDetailsForm"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

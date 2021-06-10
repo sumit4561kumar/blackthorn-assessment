@@ -1,0 +1,125 @@
+@import "variables";
+@import "breakpoints";
+
+.ticket-details {
+  width: 50%;
+  height: max-content;
+  background: #ffffff;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 50px;
+  margin: 20px;
+}
+
+.lower-border {
+  border-bottom: 1px solid $medium-grey;
+  margin: 26px 0;
+}
+
+.checkout {
+  align-items: center;
+  padding: 15px 108px;
+  height: 53px;
+  background: #0eb58a;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.ticket-summary-wrapper {
+  width: max-content;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  margin: 20px;
+  padding: 40px;
+}
+
+.checkout-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.content-title {
+  font-family: Salesforce Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.content-details {
+  font-family: Salesforce Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.label {
+  font-family: Salesforce Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  margin-right: 24px;
+}
+
+.order-summary {
+  margin: 0 0 26px 0;
+}
+
+.order-details-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.total-amount {
+  font-family: Salesforce Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.ticket-summary {
+  width: 30%;
+}
+
+.checkout-btn-wrapper {
+  width: max-content;
+  height: 100%;
+  border-radius: 4px;
+  margin: 20px;
+}
+
+.select-wrapper {
+  display: flex;
+}
+
+.arrow-button {
+  margin: 25px;
+}
+
+.arrow {
+  background-image: url("/assets/down-arrow.svg");
+  width: 14px;
+  height: 8px;
+  margin-left: 5px;
+  margin-bottom: -2px;
+  margin-right: 6px;
+  transform: rotate(90deg);
+}

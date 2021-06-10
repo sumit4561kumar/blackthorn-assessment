@@ -1,0 +1,21 @@
+@import './shared/variables';
+@import './shared/breakpoints';
+
+label {
+  &.required {
+    &::after {
+      content: '*';
+      color: $red;
+      position: relative;
+      top: -0.2em;
+    }
+  }
+}
+
+@include lt-sm {
+  label {
+    &.responsive {
+      font-weight: 600;
+    }
+  }
+}

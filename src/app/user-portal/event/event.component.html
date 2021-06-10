@@ -1,0 +1,92 @@
+<div class="arrow-button">
+  <button (click)="backEvent()">
+    <div class="arrow"></div>
+  </button>
+</div>
+<main role="main">
+  <div>
+    <div class="grid-page-margin">
+      <div class="event-listing__body">
+        <div>
+          <div>
+            <div class="image-container">
+              <div>
+                <picture content="eventInfo?.image">
+                  <source [srcset]="eventInfo?.image" sizes="720px" />
+                  <img class="listing-image" />
+                </picture>
+              </div>
+            </div>
+            <div class="detail-container">
+              <div class="title-wrapper">
+                <div class="time-wrapper">
+                  <time>
+                    <p>{{eventInfo?.start | date: 'MMMM'}}</p>
+                    <p>{{eventInfo?.start | date: 'd'}}</p>
+                  </time>
+                </div>
+                <div class="event-title">
+                  <h1>{{eventInfo?.title}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Listing Card Panel -->
+        <div class="listing-panel-wrapper">
+          <div class="sticky-listing-panel-placeholder"></div>
+          <div class="listing-panel">
+            <div class="listing-panel-info__buttons-and-status">
+              <div class="register-option">
+                <div class="listing-panel-info">
+                  <button
+                    type="button"
+                    class="register-button"
+                    (click)="register()"
+                  >
+                    Register
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Listing Card Info -->
+        <section class="listing-info clrfix">
+          <div class="listing-info__body">
+            <div class="event-description-group">
+              <div class="event-description-group-left">
+                <div class="event-description-group-left-wrapper">
+                  <div>
+                    <h3 class="label-primary">Description</h3>
+                    <div>
+                      <p>{{ eventInfo?.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="event-description-group-right">
+                <div class="event-details">
+                  <h3 class="label-primary">Date and time</h3>
+                  <div class="event-details__data">
+                    <time>
+                      <p>{{ eventInfo?.start | date: "EE, MMMM d, y" }}</p>
+                      <p>
+                        {{ eventInfo?.start | date: "h:mm a" }} -
+                        {{ eventInfo?.end | date: "h:mm a" }}
+                      </p>
+                    </time>
+                  </div>
+                  <h3 class="label-primary">Location</h3>
+                  <div class="event-details__data">
+                    <p>{{ eventInfo?.address }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

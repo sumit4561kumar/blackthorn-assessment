@@ -1,0 +1,10 @@
+@import './shared/variables';
+
+a {
+  color: $yellow;
+
+  &:hover,
+  &:focus {
+    color: $yellow-hover;
+  }
+}
